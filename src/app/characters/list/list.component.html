@@ -1,0 +1,29 @@
+<h3>{{ title }}</h3>
+<mat-divider></mat-divider>
+<p class="text-muted"><b>Acción adicional: </b> Sit aliquip ipsum laborum minim proident irure nostrud duis consectetur excepteur laboris consectetur non, nisi duis excepteur ad fugiat.. <button [disabled]="bandDelete" mat-button color="warn" (click)="removeLastCharacter()"><mat-icon>delete_sweep</mat-icon> Eliminar último personaje</button>. Ipsum dolor elit ea aliquip nisi, anim occaecat est officia adipisicing cillum consectetur sint nulla. Laborum do labore Lorem sint sunt, proident amet officia non tempor reprehenderit et in sint. <button [disabled]="bandDelete" mat-button color="warn" (click)="removeFirstCharacter()"><mat-icon>delete_sweep</mat-icon> Eliminar primer personaje</button>.</p>
+<mat-divider></mat-divider>
+<p class="text-muted"><b>ÚLTIMO ELIMINADO: </b> {{ characterDelete }} </p>
+
+<br>
+
+<mat-grid-list [cols]="mybreakpoint" rowHeight="100px" (window:resize)="handleSize($event)">
+  <mat-grid-tile
+      *ngFor="let myCharacters of characters"
+      rowspan="2">
+
+    <mat-card style="margin-left: 3px; margin-right: 3px;">
+      <mat-card-header>
+        <mat-card-title>{{myCharacters.character}}</mat-card-title>
+        <mat-card-subtitle>{{myCharacters.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-divider></mat-divider>
+        <p class="text-muted">{{myCharacters.description | slice:1:100}}...</p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button color="primary">ACCIÓN</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-grid-tile>
+</mat-grid-list>

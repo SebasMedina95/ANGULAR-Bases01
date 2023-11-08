@@ -1,0 +1,23 @@
+<p><b>Contador: </b>{{ counter }}</p>
+<section>
+  <div class="example-button-row">
+    <button style="margin-right: 2px;"
+            mat-raised-button color="primary"
+            (click)="minusCounter()">
+      <mat-icon style="margin-left: 2px;">exposure_neg_1</mat-icon>
+    </button>
+
+    <button style="margin-right: 2px;"
+            mat-raised-button color="basic"
+            (click)="resetCounter()">
+      <mat-icon style="margin-left: 2px;">replay</mat-icon>
+    </button>
+
+    <button style="margin-right: 2px;"
+            mat-raised-button color="primary"
+            (click)="plusCounter()">
+      <mat-icon style="margin-left: 2px;">exposure_plus_1</mat-icon>
+    </button>
+
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<h3>{{ title }}</h3>
+<mat-divider></mat-divider>
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
+    <button mat-icon-button disabled></button>
+    {{node.name}}
+  </mat-tree-node>
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding>
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    {{node.name}}
+  </mat-tree-node>
+</mat-tree>
+<mat-divider></mat-divider>
+
+<!-- TODO: SEPARAR MÁS ADELANTE -->
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ character }}</mat-card-title>
+    <mat-card-subtitle>{{ characterName }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-divider></mat-divider>
+    <!-- <label class="text-muted">Texto (Capitalizado) prueba: </label> {{ getCapitalizedDumisText }}
+    <br>
+    <label class="text-muted">Texto (Concatenado) prueba: </label> {{ getContactDumisText }} -->
+    <p class="text-muted">Est deserunt sint anim adipisicing mollit nostrud dolore adipisicing ullamco ullamco. Consectetur sunt laborum magna do, aliqua sunt in elit esse nisi in nulla nostrud esse voluptate; ut voluptate proident aliqua aute, Eu qui sit ipsum elit Lorem deserunt nulla officia fugiat consectetur incididunt sunt.</p>
+  </mat-card-content>
+  <mat-card-actions *ngIf="!bandChange" align="end">
+    <button mat-button color="primary" (click)="getChangeCharacter()">CAMBIAR PERSONAJE</button>
+  </mat-card-actions>
+  <mat-card-actions *ngIf="bandChange" align="end">
+    <button mat-button color="warn" (click)="getInitialCharacter()">RESETEAR PERSONAJE</button>
+  </mat-card-actions>
+</mat-card>
+
+
